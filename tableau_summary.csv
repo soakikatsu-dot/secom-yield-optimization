@@ -1,0 +1,3 @@
+strategy,fails_caught,fails_missed
+Greedy,12,9
+Gurobi,14,7

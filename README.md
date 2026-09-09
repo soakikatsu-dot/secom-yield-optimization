@@ -51,3 +51,43 @@ semiconductor fabrication line.
   caught **14 of 21** real defects in the test set, compared to 
   **12 of 21** with a simple greedy (highest-risk-first) approach — 
   a measurable improvement at no extra cost.
+
+## Visualizations
+
+![Inspection strategy comparison](images/fails_comparison.png)
+
+Gurobi's optimized allocation caught more real defects than a 
+greedy baseline, under the same inspection budget.
+
+![Fail probability distribution](images/fail_probability_distribution.png)
+
+Most predicted fail probabilities stay well below the default 0.5 
+threshold, which is why threshold tuning mattered more than changing 
+how the model was trained.
+
+## Limitations & Future Work
+
+- Inspection cost is simulated (random values), not based on real 
+  cost data — the dataset doesn't include this information.
+- Standard imbalance-handling techniques (class weighting, SMOTE) 
+  didn't improve fail detection on their own; threshold tuning did. 
+  This may be specific to this dataset's high dimensionality and 
+  small number of fail cases.
+- Next step: derive the inspection threshold directly from cost 
+  assumptions (cost of a missed fail vs. cost of inspection), rather 
+  than choosing it manually.
+
+## Tech Stack
+
+Python (pandas, scikit-learn, imbalanced-learn), Gurobi, Tableau
+
+## Project Structure
+
+```
+├── notebooks/
+│   ├── 01_eda.ipynb          # Data cleaning and exploration
+│   ├── 02_modeling.ipynb     # Prediction and imbalance handling
+│   └── 03_optimization.ipynb # Gurobi knapsack optimization
+├── images/                   # Tableau exports
+└── requirements.txt
+```

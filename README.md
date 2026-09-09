@@ -14,8 +14,7 @@ be inspected?
 
 Most public projects using this dataset stop at the prediction step. 
 This one goes further — using the predicted risk as input to an 
-inspection allocation problem, solved as an optimization model 
-with Gurobi.
+inspection allocation problem, framed and solved as an optimization model.
 
 **Dataset**: [SECOM Dataset](https://archive.ics.uci.edu/dataset/179/secom) 
 (UCI Machine Learning Repository, 2008) — 1,567 units, 590 anonymized 
